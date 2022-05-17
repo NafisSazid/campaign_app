@@ -11,7 +11,7 @@ class UpdateCampaignPercentageRaised
 
   def call
     target_amount = campaign.target_amount
-    total_invested_amount = campaign.investments.map(&:amount).inject(0, &:+)
+    total_invested_amount = campaign.total_invested_amount
     percentage = (total_invested_amount / target_amount) * 100
 
     campaign.update!(percentage_raised: percentage)
