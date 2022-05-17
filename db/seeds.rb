@@ -12,10 +12,10 @@
       name: Faker::Name.name,
       image: Faker::Avatar.image,
       percentage_raised: 0,
-      target_amount: Faker::Number.number(digits: 4),
-      sector: Faker::Commerce.department,
+      target_amount: Faker::Number.number(digits: 3),
+      sector: Faker::Commerce.department(max: 1),
       country: Faker::Address.country,
-      investment_multiple: Faker::Number.between(from: 5.0, to: 40.0).round(2),
+      investment_multiple: Faker::Number.between(from: 10.0, to: 50.0).round(2),
     }
   )
 end
