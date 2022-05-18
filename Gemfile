@@ -42,7 +42,6 @@ group :development, :test do
   gem 'pry', '~> 0.13.1'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
-  gem 'capybara'
   gem 'database_cleaner'
 end
 
