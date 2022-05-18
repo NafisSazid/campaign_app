@@ -23,6 +23,8 @@ class Investment < ApplicationRecord
   end
 
   def investment_allowed_check
+    return unless campaign
+
     if campaign.percentage_raised >= 100
       errors.add(:base, 'This campaign is full, you can try investing on other campaigns')
     end
