@@ -58,13 +58,18 @@
 						},
 						{
 							"key": "amount",
-							"value": "20",
+							"value": "29.33",
+							"type": "default"
+						},
+						{
+							"key": "campaign_id",
+							"value": "4",
 							"type": "default"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/v1/campaigns/2/investments",
+					"raw": "http://localhost:3000/api/v1/investments",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -73,8 +78,6 @@
 					"path": [
 						"api",
 						"v1",
-						"campaigns",
-						"2",
 						"investments"
 					]
 				}
