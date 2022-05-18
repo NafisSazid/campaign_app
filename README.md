@@ -17,17 +17,17 @@ rails db:seed
 
 ## API endpoints
 
-* Campaigns list: GET `http://localhost:3000/api/v1/campaigns`  
+* **Retrieve Campaigns:** GET `http://localhost:3000/api/v1/campaigns`  
 This will retrieve all the campaigns. User can also filter the campaigns by providing query params. 
 E.g: `.../api/v1/campaigns?sector=Business` will filter the result by showing only
 Business sector campaigns.  
 Available filter params: 
   * sector
   * amount - filter campaigns whose target_amount >= given amount
-  * investor_number - filter by number of investors in a campaign
+  * investor_number - filter by number of investors in the campaign
 
 
-* Investment create: POST `http://localhost:3000/api/v1/investments`  
+* **Create Investment in a Campaign:** POST `http://localhost:3000/api/v1/investments`  
 Post request with body:  
   * investor_name - required field
   * amount - required field - amount to be invested
