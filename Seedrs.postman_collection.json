@@ -1,0 +1,85 @@
+{
+	"info": {
+		"_postman_id": "d107a8da-9268-4a50-8682-2e60fda447f2",
+		"name": "Seedrs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Campaigns list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/campaigns",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"campaigns"
+					],
+					"query": [
+						{
+							"key": "sector",
+							"value": "Grocery",
+							"disabled": true
+						},
+						{
+							"key": "amount",
+							"value": "600",
+							"disabled": true
+						},
+						{
+							"key": "investor_number",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Investment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "investor_name",
+							"value": "Allan",
+							"type": "default"
+						},
+						{
+							"key": "amount",
+							"value": "20",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/campaigns/2/investments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"campaigns",
+						"2",
+						"investments"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
