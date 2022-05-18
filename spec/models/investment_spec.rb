@@ -6,10 +6,6 @@ RSpec.describe Investment, type: :model do
   it { is_expected.to belong_to(:campaign) }
 
   describe 'validations' do
-    before do
-      allow_any_instance_of(Investment).to receive(:campaign).and_return(campaign_instance)
-    end
-
     it { should validate_presence_of(:amount) }
     it { should validate_presence_of(:investor_name) }
     it { should validate_numericality_of(:amount) }

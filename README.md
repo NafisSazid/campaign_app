@@ -1,9 +1,10 @@
-# README
+# Get Started
 
 Seedrs mini backend
 
 ## Setup:
 
+* Clone/download the repo
 * Run `bundle install` to install the required gems. If install fails on mac/linux machine, please delete gemfile.lock and try again.
 * Run following
 ```
@@ -26,11 +27,11 @@ Available filter params:
   * investor_number - filter by number of investors in a campaign
 
 
-* Investment create: POST `http://localhost:3000/api/v1/campaigns/campaign_id/investments`  
-Put id of selected campaign in place of `campaign_id`.  
+* Investment create: POST `http://localhost:3000/api/v1/investments`  
 Post request with body:  
   * investor_name - required field
   * amount - required field - amount to be invested
+  * campaign_id - required field - id of selected campaign
 
 
 * The apis are accessible through any REST client, e.g: Postman, CURL commands on cli.  

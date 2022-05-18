@@ -2,12 +2,12 @@ class Investment < ApplicationRecord
   belongs_to :campaign
   
   validates :amount, presence: true, numericality: true
-  validates :investor_name, presence: true
+  validates :investor_name, :campaign, presence: true
   validate :validate_amount_with_investment_multiple
   validate :investment_allowed_check
 
   def validate_amount_with_investment_multiple
-    return unless amount
+    return unless amount && campaign
     
     minimum_investment = campaign.investment_multiple
     return if amount % minimum_investment == 0
