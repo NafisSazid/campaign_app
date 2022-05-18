@@ -10,10 +10,12 @@ class Investment < ApplicationRecord
     return unless amount && campaign
     
     minimum_investment = campaign.investment_multiple
+    # the amount is valid if it is multiple of campaign.investment_multiple
     return if amount % minimum_investment == 0
     
     quotient = amount / minimum_investment
     if quotient < 1
+      # amount is less than investment_multiple
       errors.add(:amount, "Amount must be at least #{minimum_investment} GBP")
     else
       option_one = minimum_investment * (quotient.ceil(0) - 1)
@@ -23,6 +25,7 @@ class Investment < ApplicationRecord
   end
 
   def investment_allowed_check
+    # if the campaign is fully raised, do not allow further investments
     return unless campaign
 
     if campaign.percentage_raised >= 100

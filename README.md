@@ -43,3 +43,13 @@ You can simply import this file from Postman app and run the apis.
 * `rake db:prepare`
 * Run all specs: `bundle exec rspec`
 
+
+### How would I modify data model to filter the campaigns by properties like- sector, size...
+
+To filter by properties like sector, amount, name etc. I have implemented filter scope in campaign api.
+The scope will be given through query params with the request, based on that param, I have run db query to filter the result.  
+
+Filter by number of investors: On my present implementation, I am saving investor_name in investments table. If we assume this field as a unique username, the
+filter implementation will satisfy the need (as I have counted the number of investments with unique investor_name). However, for better approach, we will have 
+to introduce User model to uniquely identify users. Investment table will link to a user id as investor. Afterwards, to filter by unique users(investors), we will 
+run query joining three of those tables.

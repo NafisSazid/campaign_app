@@ -7,6 +7,7 @@ RSpec.describe Campaign, type: :model do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:target_amount) }
     it { should validate_presence_of(:investment_multiple) }
+    it { should validate_presence_of(:sector) }
     it { should validate_uniqueness_of(:name) }
   end
 

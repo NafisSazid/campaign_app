@@ -1,5 +1,5 @@
 class Campaign < ApplicationRecord
-  has_many :investments
+  has_many :investments, dependent: :destroy
   
   validates :name, :target_amount, :sector, :investment_multiple, presence: true
   validates_uniqueness_of :name

@@ -17,7 +17,7 @@ module Api
         end
         if params[:investor_number].present?
           campaigns = campaigns.joins(:investments).group("campaigns.id").
-            having("COUNT(investments.id) = #{params[:investor_number]}")
+            having("COUNT(DISTINCT investments.investor_name) = #{params[:investor_number]}")
         end
 
         campaigns
