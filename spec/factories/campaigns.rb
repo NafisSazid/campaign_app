@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :campaign do
-    name { 'Test campaign' }
+    sequence(:name) { |n| "Test campaign_#{n}" }
     image { 'image/url' }
     percentage_raised { 0.0 }
     target_amount { 400.0 }
