@@ -23,6 +23,8 @@ RSpec.describe Api::V1::InvestmentsController, type: :controller do
 
       it 'format JSON' do
         post :create, params: valid_attributes.merge(format: :json)
+
+        expect(response.status).to eq 201
         expect(JSON.parse(response.body)).to eq(
           {
             "data" => {
@@ -57,8 +59,10 @@ RSpec.describe Api::V1::InvestmentsController, type: :controller do
         expect { post :create, params: invalid_attributes }.not_to change(Investment, :count)
       end
 
-      it 'shows error message' do
+      it 'shows error messages' do
         post :create, params: invalid_attributes.merge(format: :json)
+
+        expect(response.status).to eq 422
         expect(JSON.parse(response.body)).to eq(
           {
             "data" => {
@@ -66,6 +70,20 @@ RSpec.describe Api::V1::InvestmentsController, type: :controller do
               "investor_name" => ["can't be blank"],
             },
             "status" => "ERROR"
+          }
+        )
+      end
+    end
+
+    context 'when amount mismatches with investment_multiple' do
+      it 'does not create and shows error message' do
+        # here investment_multiple == 20.5
+        post :create, params: { investor_name: 'Henry', amount: 31, campaign_id: campaign.id }
+
+        expect(response.status).to eq 422
+        expect(JSON.parse(response.body)['data']).to eq(
+          {
+            "amount" => ["Amount should be multiple of 20.5 GBP, eg.: 20.5 or 41.0 GBP"]
           }
         )
       end
